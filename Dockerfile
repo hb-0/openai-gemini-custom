@@ -24,8 +24,8 @@ USER nodejs
 EXPOSE 8080
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=30s --retries=3 \
-  CMD CMD curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/models | grep -q "403" || exit 1   
+HEALTHCHECK --interval=10s --timeout=3s --start-period=30s --retries=3 \
+  CMD curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/models | grep -q "403" || exit 1   
 
 # Start the application
 CMD ["node", "node.mjs"]
